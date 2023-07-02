@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data?</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav id="conteudo"> 
+        <h1 id="header">Que dia é hoje?</h1>
+            <button id="btn" onclick="dia()">Mostrar</button>
+            <button id="btn2" onclick="fechar1()">X</button>
+            <div id="res"></div>
+
+        <h1 id="header">Que horas são agora?</h1>
+            <button id="btn" onclick="hora() ">Mostrar</button>
+            <button id="btn3" onclick="fechar2()">X</button>
+            <div id="res2"></div>
+    </nav>
+   
+    <script>
+        function dia(){
+            var hoje = new Date()
+            var dia = hoje.getDay()
+
+            var res = document.querySelector('div#res')
+            res.innerHTML = `Hoje é ${dia}.`
+
+            switch(dia){
+                case 0:
+                    res.innerHTML = `<p id="p1">Hoje é <strong>Domingo</strong>.</p>`
+                    break
+                case 1:
+                    res.innerHTML = `<p id="p1">Hoje é <strong>Segunda</strong>.</p>`
+                    break
+                case 2:
+                    res.innerHTML = `<p id="p1">Hoje é <strong>Terça</strong>.</p>`
+                    break
+                case 3:
+                    res.innerHTML = `<p id="p1">Hoje é <strong>Quarta</strong>.</p>`
+                    break
+                case 4:
+                    res.innerHTML = `<p id="p1">Hoje é <strong>Quinta</strong>.</p>`
+                    break
+                case 5:
+                    res.innerHTML = `<p id="p1">Hoje é <strong>Sexta</strong>.</p>`
+                    break
+                case 6:
+                    res.innerHTML = `<p id="p1">Hoje é <strong>Sábado</strong>.</p>`
+                    break
+            }
+            var mostrarbtn = document.getElementById('btn2')
+            mostrarbtn.style.display = "block"
+        }
+
+        function fechar1(){
+            var fechou = document.getElementById('p1')
+            fechou.style.display = "none";
+            var fechoubtn = document.getElementById('btn2')
+            fechoubtn.style.display = "none";
+        }
+        function hora(){
+            var agora = new Date()
+            var hora = agora.getHours()
+            var min = agora.getMinutes()
+
+            res2.innerHTML = `<p id="p2">Agora são exatamenete <strong>${hora} horas e ${min} minutos</strong>.</p>`
+            var mostrarbtn2 = document.getElementById('btn3')
+            mostrarbtn2.style.display = "block";
+        }
+
+        function fechar2(){
+            var fechou2 = document.getElementById('p2')
+            fechou2.style.display = "none";
+            var fechoubtn2 = document.getElementById('btn3')
+            fechoubtn2.style.display = "none";
+        }
+
+    </script>
+</body>
+</html>
